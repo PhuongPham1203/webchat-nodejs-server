@@ -26,6 +26,10 @@ var dbConn = mysql.createConnection({
 dbConn.connect();
 // End connect DB	
 
+app.get("/", function (req, res) {
+	return res.send("day la api server web chat box box lux");
+});
+
 // Start API
 // start authentication
 app.post("/signin", function (req, res) {
