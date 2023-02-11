@@ -17,10 +17,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 var dbConn = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'webchat',
+	host: 'sql9.freesqldatabase.com',
+	user: 'sql9597386',
+	password: 'iHlhCSNVXc',
+	database: 'sql9597386',
+	port: 3306,
 });
 
 dbConn.connect();
