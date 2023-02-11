@@ -11,6 +11,5 @@
 	"include": [
 		"src/**/*"
 	],
-	"start": "node main.js",
-	"start:dev": "node server.js 4000",
+	
 }
