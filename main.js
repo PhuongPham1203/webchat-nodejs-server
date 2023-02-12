@@ -308,7 +308,7 @@ app.post("/getpublickey", function (req, res) {
 							} else {
 								key = results2[0].private_key + key;
 							}
-							
+
 							returnData = {
 								userId1: req.body.id1,
 								userId2: req.body.id2,
@@ -357,6 +357,18 @@ io.on('connection', (socket) => {
 		socket.broadcast.to(data.room).emit('user joined');
 		//console.log("chat with : " + data.username + " in join room " + data.room);
 	});
+
+	socket.on('leave', function (room) {
+		try {
+			//console.log('[socket]', 'leave room :', room);
+			socket.leave(room);
+			//socket.to(room).emit('user left', socket.id);
+		} catch (e) {
+			console.log('[error]', 'leave room :', e);
+			socket.emit('error', 'couldnt perform requested action');
+		}
+	});
+
 
 	socket.on('message', (data) => {
 		//console.log("user " + data.userId1 + " send to " + data.userId2 + " with mess :" + data.message);
