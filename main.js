@@ -373,7 +373,7 @@ io.on('connection', (socket) => {
 	socket.on('message', (data) => {
 		//console.log("user " + data.userId1 + " send to " + data.userId2 + " with mess :" + data.message);
 		//console.log("roomId " + data.roomId );
-		if (data.message != null || data.message != "") {
+		if (data.message != null && data.message != "") {
 			saveMessage(data.userId1, data.userId2, data.message);
 			io.in(data.roomId).emit('newMessage', { userId1: data.userId1, userId2: data.userId2, message: data.message, timeCreate: data.timeCreate, roomId: data.roomId });
 		}
