@@ -354,7 +354,7 @@ const port = process.env.PORT || 3000;
 io.on('connection', (socket) => {
 	socket.on('join', (data) => {
 		socket.join(data.room);
-		socket.broadcast.to(data.room).emit('user joined');
+		//socket.broadcast.to(data.room).emit('user joined');
 		console.log("chat with : " + data.username + " in join room " + data.room);
 	});
 
