@@ -355,12 +355,12 @@ io.on('connection', (socket) => {
 	socket.on('join', (data) => {
 		socket.join(data.room);
 		socket.broadcast.to(data.room).emit('user joined');
-		//console.log("chat with : " + data.username + " in join room " + data.room);
+		console.log("chat with : " + data.username + " in join room " + data.room);
 	});
 
 	socket.on('leave', function (room) {
 		try {
-			//console.log('[socket]', 'leave room :', room);
+			console.log('[socket]', 'leave room :', room);
 			socket.leave(room);
 			//socket.to(room).emit('user left', socket.id);
 		} catch (e) {
@@ -374,7 +374,7 @@ io.on('connection', (socket) => {
 		//console.log("user " + data.userId1 + " send to " + data.userId2 + " with mess :" + data.message);
 		//console.log("roomId " + data.roomId );
 		saveMessage(data.userId1, data.userId2, data.message);
-		io.in(data.roomId).emit('newMessage', { userId1: data.userId1, userId2: data.userId2, message: data.message, timeCreate: data.timeCreate });
+		io.in(data.roomId).emit('newMessage', { userId1: data.userId1, userId2: data.userId2, message: data.message, timeCreate: data.timeCreate, roomId: data.roomId });
 	});
 });
 
