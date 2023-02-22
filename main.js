@@ -17,11 +17,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 var dbConn = mysql.createConnection({
-	host: 'sql9.freesqldatabase.com',
-	user: 'sql9597386',
-	password: 'iHlhCSNVXc',
-	database: 'sql9597386',
-	port: 3306,
+	host: '34.142.173.191',
+	user: 'boxboxlux123',
+	password: 'boxboxlux123',
+	database: 'webchat',
+	//port: 3306,
 });
 
 dbConn.connect();
@@ -259,7 +259,7 @@ app.post("/getlistfriend", function (req, res) {
 app.post("/getlistchat", function (req, res) {
 
 	// check username exits 
-	dbConn.query('SELECT * FROM message_chat where (id_user_1 = ? and id_user_2 = ?) or (id_user_2 = ? and id_user_1 = ?) ORDER BY id DESC LIMIT 50', [req.body.id1, req.body.id2, req.body.id1, req.body.id2], function (error, results, fields) {
+	dbConn.query('SELECT * FROM message_chat where (id_user_1 = ? and id_user_2 = ?) or (id_user_2 = ? and id_user_1 = ?) and is_accept_friend = 1 ORDER BY id DESC LIMIT 50', [req.body.id1, req.body.id2, req.body.id1, req.body.id2], function (error, results, fields) {
 
 		let returnData = [];
 
