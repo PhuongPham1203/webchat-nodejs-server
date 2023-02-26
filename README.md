@@ -7,3 +7,8 @@ Database password: iHlhCSNVXc
 Port number: 3306
 
 https://www.phpmyadmin.co/index.php
+
+google mysql
+34.142.173.191
+boxboxlux123
+boxboxlux123

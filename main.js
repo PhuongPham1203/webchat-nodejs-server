@@ -383,6 +383,7 @@ io.on('connection', (socket) => {
 function saveMessage(id1, id2, message) {
 	dbConn.query('INSERT INTO message_chat (id_user_1, id_user_2, message) VALUES (?,?,?)', [id1, id2, message], function (error, results, fields) {
 		//
+		console.log(error)
 	});
 }
 
